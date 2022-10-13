@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h2>Echelon Form Generator</h2>
+    </div>
+    <div class="center">
+        <div class="container">
+            <h4>Instraction</h4>
+        </div> 
+    </div>
+    <div class="center" style="padding-right:10px;padding-left:10px;color:rgb(64, 75, 71);text-align: justify;">
+        In the following box you can put all the coefficients and constants of all linear equations. Here a set of equation and input procedure int the box given. After inputing values click on 'Generate' button.
+        <br>
+        
+    </div>
+    <br>
+    <div class="center" style="margin-bottom:2px;">
+        Equations
+    </div>
+    <div class="center">
+        <div>
+            x<sub>1</sub> +2x<sub>2</sub> +3x<sub>3</sub> = 4<br>
+            2x<sub>1</sub> +3x<sub>2</sub> +4x<sub>3</sub> = 5<br>
+            3x<sub>1</sub> +4x<sub>2</sub> +5x<sub>3</sub> = 6<br>
+        </div>
+    </div>
+    <br>
+    <div class="center">
+        Input Format
+    </div>
+    <div class="center">
+        1 2 3 4<br>
+        2 3 4 5<br>
+        3 4 5 6<br>
+    </div>
+                    
+    <br>
+    <div class="center">
+        <textarea cols="30" rows="10" id="fname"></textarea>
+    </div>
+    <br>
+    <div class="center">
+        <input type="submit" id="send" onclick="sendkey()" value="Generate">
+    </div>
+
+    <script>document.write(`<hr>`);</script>
+
+    <div class="center">
+        <div id="resultBox">
+
+        </div>
+    </div>
+
+    <script src="test.js"></script>
+</body>
+</html>
