@@ -3,7 +3,7 @@ let val,arr=[[]];
 
 function sendkey(){
   //document.getElementById("fname").value;
-
+  document.getElementById("resultBox").innerHTML="";
   let i=0,j=0,text=document.getElementById("fname").value;
   let values=text.split("\n");
 
