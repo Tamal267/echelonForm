@@ -26,8 +26,9 @@ function sendkey(){
 
 
 function find(){
-  let pos=0,count=0,a,b,c,d,ei,ej,cha="-",aster,temp,inter;
-  while(count < n-1){
+  let pos=0,count=0,a,b,c,d,ei,ej,cha="-",aster,temp,inter=((n-1)*n)/2;
+  while(count < inter){
+    count=0;
     document.getElementById("resultBox").innerHTML+=("<br><br>~<br>");
     for(ei=0;ei<n;ei++){
       c=arr[pos][pos];
@@ -36,16 +37,21 @@ function find(){
       b=Math.abs(d);
       aster="'";
       aster=aster.repeat(pos);
-      count=0;
       if(a == 0){
-        temp=arr[pos];
-        arr[pos] = arr[pos+1];
-        arr[pos+1] = temp;
-        temp=a;
-        a=b;
-        b=temp;
-        document.getElementById("resultBox").innerHTML+=(`<span style="color:rgb(53, 52, 52);font-family:monospace;"> By interchanging L${aster}<sub>${pos+1}</sub> & L${aster}<sub>${pos+2}</sub></span><br>`);
+        for(let p=pos+1;p<n;p++){
+          if(arr[p][pos]){
+            temp=arr[pos];
+            arr[pos] = arr[p];
+            arr[p] = temp;
+            temp=a;
+            a=b;
+            b=temp;
+            document.getElementById("resultBox").innerHTML+=(`<span style="color:rgb(53, 52, 52);font-family:monospace;"> By interchanging L${aster}<sub>${pos+1}</sub> & L${aster}<sub>${p+1}</sub></span><br>`);
+            p=n;
+          }
+        }
       }
+        
       for(ej=0;ej<nv;ej++){
         if(ei<=pos) {
           if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]} `);
@@ -75,10 +81,9 @@ function find(){
             cha = "+";
           }
         }
-        if(ei==nM1){
+        if(ej<ei){
           if(arr[ei][ej] == 0) count++;
         }
-
       }
       document.getElementById("resultBox").innerHTML+=("<br>");
     }
