@@ -46,7 +46,7 @@ function find(){
         else {
           if(((a * d) - (b * c)) == 0 ){
             arr[ei][ej] = (a * arr[ei][ej]) - (b * arr[pos][ej]);
-            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}`);
+            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}  <span class="process">[L${aster}'<sub>${ei+1}</sub> = ${a}L${aster}<sub>${ei+1}</sub> ${cha} ${b}L${aster}<sub>${pos+1}</sub>]</span>`);
             else{
               if(ej>0 && arr[ei][ej]>=0) document.getElementById("resultBox").innerHTML+=("+");
               document.getElementById("resultBox").innerHTML+=(`${arr[ei][ej]}x<sub>${ej+1}</sub> `);
@@ -55,7 +55,7 @@ function find(){
           }
           else{
             arr[ei][ej] = (a * arr[ei][ej]) + (b * arr[pos][ej]);
-            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}`);
+            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}  <span class="process">[L${aster}'<sub>${ei+1}</sub> = ${a}L${aster}<sub>${ei+1}</sub> ${cha} ${b}L${aster}<sub>${pos+1}</sub>]</span>`);
 
             else {
               if(ej>0 && arr[ei][ej]>=0) document.getElementById("resultBox").innerHTML+=("+");
