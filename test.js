@@ -26,7 +26,7 @@ function sendkey(){
 
 
 function find(){
-  let pos=0,count=0,a,b,c,d,ei,ej;
+  let pos=0,count=0,a,b,c,d,ei,ej,cha="-",aster;
   while(count < n-1){
     document.getElementById("resultBox").innerHTML+=("<br><br>~<br>");
     for(ei=0;ei<n;ei++){
@@ -34,10 +34,12 @@ function find(){
       a=Math.abs(c);
       d=arr[ei][pos];
       b=Math.abs(d);
+      aster="'";
+      aster=aster.repeat(pos);
       count=0;
       for(ej=0;ej<nv;ej++){
         if(ei<=pos) {
-          if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}`);
+          if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]} `);
           else{
             if(ej>0 && arr[ei][ej]>=0) document.getElementById("resultBox").innerHTML+=("+");
             document.getElementById("resultBox").innerHTML+=(`${arr[ei][ej]}x<sub>${ej+1}</sub> `);
@@ -46,21 +48,22 @@ function find(){
         else {
           if(((a * d) - (b * c)) == 0 ){
             arr[ei][ej] = (a * arr[ei][ej]) - (b * arr[pos][ej]);
-            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}  <span class="process">[L${aster}'<sub>${ei+1}</sub> = ${a}L${aster}<sub>${ei+1}</sub> ${cha} ${b}L${aster}<sub>${pos+1}</sub>]</span>`);
+            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}   <span class="process">[L${aster}'<sub>${ei+1}</sub> = ${a}L${aster}<sub>${ei+1}</sub> ${cha} ${b}L${aster}<sub>${pos+1}</sub>]</span>`);
             else{
               if(ej>0 && arr[ei][ej]>=0) document.getElementById("resultBox").innerHTML+=("+");
               document.getElementById("resultBox").innerHTML+=(`${arr[ei][ej]}x<sub>${ej+1}</sub> `);
             }
-
+            cha = "-";
           }
           else{
             arr[ei][ej] = (a * arr[ei][ej]) + (b * arr[pos][ej]);
-            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}  <span class="process">[L${aster}'<sub>${ei+1}</sub> = ${a}L${aster}<sub>${ei+1}</sub> ${cha} ${b}L${aster}<sub>${pos+1}</sub>]</span>`);
+            if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]}   <span class="process">[L${aster}'<sub>${ei+1}</sub> = ${a}L${aster}<sub>${ei+1}</sub> ${cha} ${b}L${aster}<sub>${pos+1}</sub>]</span>`);
 
             else {
               if(ej>0 && arr[ei][ej]>=0) document.getElementById("resultBox").innerHTML+=("+");
               document.getElementById("resultBox").innerHTML+=(`${arr[ei][ej]}x<sub>${ej+1}</sub> `);
             }
+            cha = "+";
           }
         }
         if(ei==nM1){
