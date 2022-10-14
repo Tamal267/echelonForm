@@ -16,3 +16,8 @@
     background-color: rgb(231, 231, 224);
     outline-width: 0px;
 }
+.process{
+    color:blueviolet;
+    font-style: italic;
+    font-family:'Courier New', Courier, monospace;
+}
