@@ -26,7 +26,7 @@ function sendkey(){
 
 
 function find(){
-  let pos=0,count=0,a,b,c,d,ei,ej,cha="-",aster;
+  let pos=0,count=0,a,b,c,d,ei,ej,cha="-",aster,temp,inter;
   while(count < n-1){
     document.getElementById("resultBox").innerHTML+=("<br><br>~<br>");
     for(ei=0;ei<n;ei++){
@@ -37,6 +37,15 @@ function find(){
       aster="'";
       aster=aster.repeat(pos);
       count=0;
+      if(a == 0){
+        temp=arr[pos];
+        arr[pos] = arr[pos+1];
+        arr[pos+1] = temp;
+        temp=a;
+        a=b;
+        b=temp;
+        document.getElementById("resultBox").innerHTML+=(`<span style="color:rgb(53, 52, 52);font-family:monospace;"> By interchanging L${aster}<sub>${pos+1}</sub> & L${aster}<sub>${pos+2}</sub></span><br>`);
+      }
       for(ej=0;ej<nv;ej++){
         if(ei<=pos) {
           if(ej== nv-1) document.getElementById("resultBox").innerHTML+=(`= ${arr[ei][ej]} `);
